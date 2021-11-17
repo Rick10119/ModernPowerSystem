@@ -1,16 +1,16 @@
-%% ±àºÅ·½·¨ - Tinney-3
+%% LDUå› å­è¡¨çš„ç§©1ä¿®æ­£
 function [L_new, D_new, U_new] = rankOne(L, D, U, M, N, a)
 %
 % INPUT DATA:
-%   Ô­À´µÄL, D, U¾ØÕó
-%   ¹ØÁª¾ØÕóM, N
-%   ĞŞÕıÁ¿ a
+%   åŸæ¥çš„L, D, UçŸ©é˜µ
+%   å…³è”çŸ©é˜µM, N
+%   ä¿®æ­£é‡ a
 
 % OUTPUT DATA:
-%   ĞÂµÄL, D, U¾ØÕó
+%   æ–°çš„L, D, UçŸ©é˜µ
 %
 
-% ÖÕÖ¹Ìõ¼ş
+% ç»ˆæ­¢æ¡ä»¶
 if length(D) == 1
     L_new = L;
     D_new = D + M * a * N;
@@ -18,7 +18,7 @@ if length(D) == 1
     return
 end
 
-% ±¾²ã£º
+% æœ¬å±‚ï¼š
 D(1, 1) = D(1, 1) + M(1) * a * N(1);
 
 N(2 : end) = N(2 : end) - (N(1) * U(1, 2 : end)).';
@@ -29,7 +29,7 @@ L(2 : end, 1) = L(2 : end, 1) + M(2 : end) * a * N(1) * inv(D(1, 1));
 
 a = a - a * N(1) * inv(D(1, 1)) * M(1) * a;
 
-% µİ¹é
+% é€’å½’
 [L(2:end, 2:end), D(2:end, 2:end), U(2:end, 2:end)] = rankOne( ...
     L(2:end, 2:end), D(2:end, 2:end), U(2:end, 2:end), M(2:end), N(2:end), a);
 
