@@ -1,0 +1,6 @@
+代码清单：
+
+main_1.m  	题目1主程序
+    myNewtonpf	所编写NR法求解潮流程序
+main_2.m 		子题目2主程序
+    myMakeLODF	所编写生成LODF矩阵程序
